@@ -7,6 +7,7 @@
 - [评估](#评估)
 - [方法](#方法)
 - [数据集](#数据集)
+- [经典论文](#经典论文)
 - [贡献](#贡献)
 - [许可证](#许可证)
 
@@ -16,19 +17,41 @@
 ## 🧑‍💻 评估
 本部分包括专注于 **评估价值对齐** 方法及其有效性的论文和资源。
 
+### 自动演化的价值观评测
+- **[(ICML 2025 Poster) Raising the Bar: Investigating the Values of Large Language Models via Generative Evolving Testing](GitHub-Link)**
+  - **作者**：Han Jiang, Xiaoyuan Yi
+  - **摘要**：大型语言模型（LLMs）取得了重大突破，但其生成的不道德内容存在潜在风险。衡量LLMs的价值一致性对于其监管和负责任的部署至关重要。大量数据集被构建用于评估大型语言模型中的社会偏见、毒性和伦理，但它们存在评估时间效应，即随着模型快速发展，现有数据可能泄露或需求减弱，高估了不断发展的大型语言模型。为解决这一问题，我们提出了GETA，一种新型生成式进化测试方法，动态探究LLMs的道德基线。不同于以往依赖静态数据集且难度有限的自适应测试方法，GETA采用迭代更新的题生成器，推断每个LLM的道德边界，生成难度定制的测试题目，准确反映真实的对齐程度。该过程理论上学习项目与模型响应的联合分布，项目难度和价值一致性作为潜在变量，生成器与LLM协同演化，减轻时间效应。我们评估了多种具备多样化功能的流行大型语言模型，展示了GETA能够创建难度匹配测试项目，并更准确地评估大型语言模型的价值，更好地符合其在未见的值外和身份识别项目上的表现，为未来的评估范式奠定基础。
+  - **GitHub** 💻：[链接](https://github.com/Salomeeeee/GETA)
+  - **OpenReview** 📝：[链接](https://openreview.net/forum?id=0REM9ydeLZ)
+  - **arXiv** 📄：[链接](https://arxiv.org/abs/2406.14230)
 
+  - **[(ICLR 26 Undereview) AdAEM: An Adaptively and Automated Extensible Evaluation Method of LLMs' Value Difference](https://valuecompass.github.io/#/)**
+  - **作者**：Shitong Duan, Xiaoyuan Yi, 
+  - **摘要**：评估大型语言模型（LLMs）的潜在价值差异，有助于全面比较其不匹配、文化适应性和偏见。然而，当前的价值测量方法面临信息量挑战：测试题目常常过时、受污染或通用，只能捕捉评论安全值的取向，例如HHH，这些值在不同大型语言模型之间共享，导致结果难以区分且信息量不足。为解决这一问题，我们引入了AdAEM，一种新型的自我扩展评估算法，用于揭示LLM的倾向。与静态基准不同，AdAEM能够自动且自适应地生成并扩展其测试题目。这通过探究跨文化和时间段开发的多样大型语言模型的内部价值边界，以情境优化方式实现。理论上，这种过程最大化了信息论目标，以提取多样化的争议话题，从而提供更清晰且富有信息量的模型价值差异见解。通过这种方式，AdAEM能够与大型语言模型的发展共同演进，持续追踪其价值动态。我们利用AdAEM生成新颖问题并进行广泛分析，证明方法的有效性和有效性，为更好的跨学科研究奠定基础，探讨LLM的价值和一致性。
+  - **GitHub** 💻：[链接](https://github.com/microsoft/ValueCompass)
+  - **OpenReview** 📝：[链接](https://openreview.net/forum?id=qNlTH4kYJZ)
+  - **arXiv** 📄：[链接](https://arxiv.org/abs/2505.13531)
 
-- **[论文标题 2](GitHub-Link)**
-  - **作者**：Author1, Author2
-  - **摘要**：简要总结论文的目标和贡献。
+- **[(ACL 25)Value Compass Benchmarks: A Platform for Fundamental and Validated Evaluation of LLMs Values](GitHub-Link)**
+  - **描述**：随着大型语言模型（LLM）取得显著突破，使其价值观与人类价值观保持一致已成为其负责任开发和定制化应用的关键所在。然而，目前仍缺乏能够满足以下三个理想目标的LLM价值观评估方法：（1）价值观澄清：我们希望能够精确、全面地阐明LLM的底层价值观，而目前的评估方法往往过于关注诸如偏见和毒性等安全风险。（2）评估有效性：现有的静态开源基准测试容易受到数据污染，并且随着LLM的演进会迅速过时。此外，这些区分性评估方法揭示的是LLM对价值观的认知，而非LLM行为与价值观的契合度。（3）价值观多元性：在衡量LLM的价值观一致性时，往往忽略了人类价值观在不同个体和文化间的多元性。为了应对这些挑战，我们提出了价值指南针基准测试，该测试包含三个相应的模块。它 (i) 基于动机不同的基本价值观进行评估，以从整体角度阐明 LLM 的潜在价值观；(ii) 应用生成式演化评估框架，其中包含自适应测试项目，用于演化 LLM，并从现实场景中的行为直接识别价值；(iii) 提出一种指标，该指标将 LLM 与特定价值观的一致性量化为多个维度上的加权和，权重由多元价值观决定。
   - **GitHub** 💻：[链接](GitHub-Link)
   - **OpenReview** 📝：[链接](OpenReview-Link)
-  - **arXiv** 📄：[链接](arXiv-Link)
+  - **arXiv** 📄：[链接](https://arxiv.org/abs/2501.07071)
+
 
 ## 🧠 方法
 本部分包括介绍 **价值对齐** 新方法的论文和资源。
 
-### 对原先RLHF进行改进 -- 需要一些最优化理论的基础
+### 安全价值对齐
+
+- **[(ICLR'24 Spotlight) Safe RLHF: Safe Reinforcement Learning from Human Feedback](GitHub-Link)**
+  - **作者**：Josef Dai, Xuehai Pan
+  - **摘要**：随着大型语言模型（LLMs）的发展，在人工智能系统的性能与安全性之间取得平衡比以往任何时候都更加关键。然而，帮助与无害目标之间的固有张力在LLM培训中构成了重大挑战。为解决这一问题，我们提出了安全强化人类反馈学习（Safe RLHF），这是一种用于人类价值对齐的新颖算法。Safe RLHF 明确解耦了人类对助益性和无害性的偏好，有效避免了众工对紧张关系的困惑，并允许我们训练不同的奖励和成本模型。我们将LLMs的安全问题形式化为一种优化任务，旨在最大化奖励函数，同时满足指定的成本约束。利用拉格朗日方法解决这一受限问题，Safe RLHF在微调过程中动态调整两个目标之间的平衡。通过使用Safe RLHF进行三轮微调，我们展示了在减轻有害反应同时提升模型性能的能力，优于现有价值对齐算法。通过实验，我们使用Safe RLHF微调了Llama-7B，并将其与收集到的人类偏好对齐，显著提升了其有益性和无害性，基于人类评估。
+  - **GitHub** 💻：[链接](https://github.com/PKU-Alignment/safe-rlhf?tab=readme-ov-file)
+  - **OpenReview** 📝：[链接](https://openreview.net/forum?id=TyFrPOKYXw)
+  - **arXiv** 📄：[链接](https://arxiv.org/abs/2310.12773)
+
+### 多价值观对齐(需要一些最优化理论的基础)
 - **[(NeurIPS'25 Oral) Beyond Expectations: Quantile-Guided Alignment for Risk-Calibrated Language Models](GitHub-Link)**
   - **作者**：Xinran Wang, Jin Du
   - **摘要**：大型语言模型可能产生罕见但灾难性的输出，如有害的对话或不安全的代码。现有的人类反馈强化学习（RLHF）通常最大化平均回报，导致高风险尾部事件控制不足。我们引入了分位数引导对齐（QA），这是一个允许用户在任意分位数上指定期望改进——无论是单独还是跨多个奖励维度——从而将更细致控制的输出分布调整为更安全、更理想的结果。该方法通过增强奖励表述扩展标准RLHF，强制执行分位数约束。对话和代码生成任务的实验表明，分位数比对显著提升了目标尾部的质量，同时保持整体性能。结果将质量保证定位为一条原则性路径，实现风险校准语言模型，并以尾部为中心的对齐。
@@ -41,6 +64,19 @@
   - **OpenReview** 📝：[链接](https://openreview.net/pdf?id=NN6QHwgRrQ)
   - **arXiv** 📄：[链接](https://arxiv.org/abs/2410.19198)
 
+### 多价值观对齐(In-Context Learning)
+- **[(ICLR 26 Undereview) PICACO: Pluralistic In-Context Value Alignment of LLMs via Total Correlation Optimization](GitHub-Link)**
+  - **作者**： Han Jiang, Dongyao Zhu
+  - **摘要**： 上下文学习在将大型语言模型（LLMs）与人类价值观对齐方面展现出巨大潜力，有助于减少有害输出并适应多样化偏好，且无需耗费高昂的后训练成本，该方法被称为上下文对齐（ICA）。然而，LLMs对输入提示的理解仍存在认知缺陷，限制了其处理价值冲突的能力——人类价值观本质上具有多元性，常带来相互冲突的要求，例如创新与传统之间的矛盾。当前ICA方法存在局限性，难以解决价值冲突问题——人类价值观具有内在多元性，常带来相互冲突的要求，例如创新与传统之间的矛盾。限制了ICA解决价值张力的能力——人类价值观本质上是多元的，常提出相互冲突的要求，例如创新与传统之间的矛盾。当前ICA方法因此面临指令瓶颈挑战：LLM难以在单一提示中协调多重预期价值，导致对齐不完整或存在偏差。为解决此问题，我们提出PICACO——一种新型多元化ICA方法。无需微调，PICACO通过优化整合多重价值的元指令，更有效激发LLM对任务的理解并提升对齐度。该方法通过最大化指定价值与LLM响应间的总相关性实现，理论上可强化价值一致性并减少干扰噪声，从而生成更有效的指令。在五个值集上的广泛实验表明，PICACO在黑箱和开源LLM上均表现良好，超越了多个近期强基准，并在多达8个不同值集上实现了更优平衡。
+  - **OpenReview** 📝：[链接](https://openreview.net/forum?id=kj93nhq6Fl)
+  - **arXiv** 📄：[链接](https://arxiv.org/abs/2507.16679)
+
+
+
+### Fake Alignment
+
+
+### 价值观对齐与可解释性的结合
 - **[论文标题 2](GitHub-Link)**
   - **作者**：Author1, Author2
   - **摘要**：简要总结论文的目标和贡献。
@@ -48,20 +84,33 @@
   - **OpenReview** 📝：[链接](OpenReview-Link)
   - **arXiv** 📄：[链接](arXiv-Link)
 
+  - **[论文标题 2](GitHub-Link)**
+  - **作者**：Author1, Author2
+  - **摘要**：简要总结论文的目标和贡献。
+  - **GitHub** 💻：[链接](GitHub-Link)
+  - **OpenReview** 📝：[链接](OpenReview-Link)
+  - **arXiv** 📄：[链接](arXiv-Link)
+
+
 ## 🗂️ 数据集
 本部分包括用于 **训练和测试** 价值对齐算法的数据集。
 
-- **[数据集标题 1](GitHub-Link)**
-  - **描述**：简要总结数据集的内容和使用场景。
-  - **GitHub** 💻：[链接](GitHub-Link)
-  - **OpenReview** 📝：[链接](OpenReview-Link)
-  - **arXiv** 📄：[链接](arXiv-Link)
+- **[Value FULCRA: Mapping Large Language Models to the Multidimensional Spectrum of Basic Human Value](GitHub-Link)**
+  - **描述**：大型语言模型（LLM）的快速发展吸引了对其负责任开发价值一致性的广泛关注。然而，如何定义价值观仍是一个尚未被广泛探讨的问题。现有工作主要遵循“助人、诚实、无害”原则，并将价值作为人工智能社区制定的风险标准，例如公平性和隐私保护，但存在模糊性、适应性和透明度不足的问题。本研究受跨文化人类和社会科学中基本价值观的启发，提出了一种新的基本价值对齐范式，并引入了由基本价值维度所跨越的价值空间。所有LLM的行为都可以通过识别底层值映射到该空间，具备解决三大挑战的潜力。为促进未来研究，我们以代表性Schwartz基本值理论为初始化示例，构建FULCRA数据集，该数据集由5k（LLM输出，值向量）对组成。我们对FULCRA的广泛分析揭示了基本价值观与大型语言模型行为之间的潜在关系，表明我们的方法不仅涵盖了现有的主流风险，还预见了可能未被识别的风险。此外，我们还提出了基本值评估和对齐的初步实现，为该领域的未来研究铺平了道路。
+  - **arXiv** 📄：[链接](https://arxiv.org/abs/2311.10766)
 
-- **[数据集标题 2](GitHub-Link)**
-  - **描述**：简要总结数据集的内容和使用场景。
-  - **GitHub** 💻：[链接](GitHub-Link)
-  - **OpenReview** 📝：[链接](OpenReview-Link)
-  - **arXiv** 📄：[链接](arXiv-Link)
+## 📄 经典论文
+本部分包括一些该领域的**开山之作**与**经典论文**
+
+- **[Training language models to follow instructions with human feedback](GitHub-Link)**
+  - **描述**：语言模型规模的扩大并不必然使其更善于遵循用户意图。例如，大型语言模型生成的内容可能包含虚假信息、具有危害性，或根本无法满足用户需求。换言之，这些模型与用户需求存在偏差。本文提出一种通过人类反馈进行微调的方法，可在广泛任务场景中实现语言模型与用户意图的协同。我们首先收集由标注者编写的提示词及通过OpenAI API提交的提示词，构建出标注者演示理想模型行为的数据集，以此通过监督学习对GPT-3进行微调。随后收集模型输出排序数据集，利用人类反馈的强化学习机制对该监督模型进行进一步优化。我们将最终模型命名为InstructGPT。在人类对提示分布的评估中，13亿参数的InstructGPT模型输出优于1750亿参数的GPT-3——尽管其参数数量仅为后者的百分之一。此外，InstructGPT模型在真实度提升与有害内容生成减少方面表现突出，同时在公开NLP数据集上的性能退化微乎其微。尽管InstructGPT仍会出现简单错误，但我们的结果表明，通过人类反馈进行微调是使语言模型与人类意图保持一致的可行方向。
+  - **arXiv** 📄：[链接](https://arxiv.org/pdf/2203.02155)
+
+
+- **[Constitutional AI: Harmlessness from AI Feedback](GitHub-Link)**
+  - **描述**：随着人工智能系统能力的提升，我们希望邀请他们协助监督其他人工智能。我们尝试通过自我提升训练无害人工智能助手的方法，无需人工标签识别有害输出。唯一的人类监督是通过规则或原则列表，因此我们称该方法为“宪法人工智能”。该过程包括监督学习阶段和强化学习阶段。监督阶段我们从初始模型抽样，生成自我批评和修订，最后根据修正后的反馈微调原始模型。在强化学习阶段，我们从微调模型中抽样，使用模型评估两个样本中哪个更好，然后从该AI偏好数据集中训练偏好模型。然后我们使用强化学习，将偏好模型作为奖励信号，即使用“来自AI反馈的强化学习”（RLAIF）。因此，我们能够训练出一个无害但不回避的AI助手，它通过解释其反对意见来应对有害查询。SL和RL方法都可以利用思维链式推理来提升AI决策的人类判断表现和透明度。这些方法使得能够更精确地控制AI行为，且只需更少的人类标签。
+  - **GitHub** 💻：[链接](https://github.com/anthropics/ConstitutionalHarmlessnessPaper)
+  - **arXiv** 📄：[链接](https://arxiv.org/abs/2212.08073)
 
 ## 💡 贡献
 我们欢迎对这个仓库的贡献！如果你发现有遗漏的论文或资源，或者希望提出改进建议，请随时打开 issue 或提交 pull request。
